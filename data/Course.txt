@@ -1,2 +1,6 @@
+Syntax (This to be remove at a later date)
+Index,Class,Course ID,Course Name,[Lesson Type (LEC = 1 hour lecture|TUT = 1 hour tutorial|LAB = 2 hour lab),Day,Hour Offset (0=0830, 1=0930 ... 9=1730)]...
+
+Data below:
 19201,SS1,CZ2002,OBJECT ORIENTED DESIGN & PROGRAMMING,LEC,TUE,1,LEC,FRI,3,TUT,THU,2,LAB,THU,6
 19202,SS2,CZ2002,OBJECT ORIENTED DESIGN & PROGRAMMING,LEC,TUE,1,LEC,FRI,3,TUT,THU,2,LAB,THU,6
