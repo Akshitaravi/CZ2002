@@ -21,13 +21,19 @@ public class Test {
 		return date;
 	}
 
+	public static Date newDate(String s) {
+		DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+		Date date = null;
+		try {
+			date = df.parse(s);
+		} catch (Exception e) {
+			System.out.println("Exception Occured >> " + e.getMessage());
+		}
+		return date;
+	}
+
 	public static void main(String[] Argz) {
 		ArrayList<Index> totalindex = new ArrayList<Index>();
-
-		// Index(int indexID, String courseID, int vacancy, Schedule schedule)
-		// Schedule(int inID, int dLab, int dL1, int dL2, int dTut, Date tLab, Date tL1,
-		// Date tL2, Date tTut, String vLab, String vL1, String vL2, String vTut,
-		// boolean wk) {
 
 		Schedule nSchedule = new Schedule(19201, 4, 2, 5, 3, convertTime("14:30"), convertTime("09:30"),
 				convertTime("11:30"), convertTime("10:30"), "SWLAB1", "LT2A", "LT2A", "LHN TR+17", true);
@@ -46,5 +52,21 @@ public class Test {
 		} catch (Exception e) {
 			System.out.println("Exception Occured >> " + e.getMessage());
 		}
+
+		ArrayList<Admin> totaladmin = new ArrayList<Admin>();
+		Admin admin1 = new Admin("Tan Kheng Leong", "KHENGLEONG", "P@ssw0rd", "S1234567A", newDate("1970-01-01"),
+				87654321, true, "SG", "50", "Nanyang Avenue", "Singapore", "639798");
+		totaladmin.add(admin1);
+
+		try {
+			FileOutputStream fos = new FileOutputStream("data/testAdmin.dat");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(totaladmin);
+			oos.close();
+			fos.close();
+		} catch (Exception e) {
+			System.out.println("Exception Occured >> " + e.getMessage());
+		}
+
 	}
 }
