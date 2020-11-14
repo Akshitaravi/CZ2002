@@ -1,35 +1,35 @@
-package SS9Project;
+package test2;
 
 import java.io.Serializable;
 import java.util.*;
 
 /*
- * Each course represent a subject for a degree programme.
+ * Each course represent a subject for a degree programme. Each course can have multiple indexes.
  *
  * Done by AKSHITA RAVISANKAR, HOO KAH JUN, JEWELLE LIM FONG YEE, LEE YU JIE MELVIN, PUVVADA MEGHANA
  */
 
 public class Course implements Serializable {
 	// Name of course
-	private String name;
+	private String courseName;
 	// Course Identifier (Eg: CE/CZxxxx)
 	private String courseID;
 	// List of Index (Class) under the course
 	private ArrayList<Index> index;
 
-	public Course(String name, String courseID, ArrayList<Index> index) {
+	public Course(String courseName, String courseID, ArrayList<Index> index) {
 		super();
-		this.name = name;
+		this.courseName = courseName;
 		this.courseID = courseID;
 		this.index = index;
 	}
 
 	public String getCourseName() {
-		return name;
+		return courseName;
 	}
 
-	public void setCourseName(String name) {
-		this.name = name;
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
 	}
 
 	public String getCourseID() {
@@ -47,4 +47,6 @@ public class Course implements Serializable {
 	public void setCourseIndex(ArrayList<Index> index) {
 		this.index = index;
 	}
+	
+	
 }
