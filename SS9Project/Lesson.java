@@ -20,6 +20,9 @@ public class Lesson implements Serializable {
 	private boolean labWeek;
 	// Start time of the lesson
 	private Date startTime;
+	//End time of lesson
+	//private Date endTime;
+	
 	// Venue of the lesson
 	private String venue;
 
