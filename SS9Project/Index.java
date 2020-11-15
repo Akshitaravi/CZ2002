@@ -15,8 +15,8 @@ import java.util.ArrayList;
  * Done by AKSHITA RAVISANKAR, HOO KAH JUN, JEWELLE LIM FONG YEE, LEE YU JIE MELVIN, PUVVADA MEGHANA
  */
 
-//public class Index implements Serializable {
-public class Index {
+public class Index implements Serializable {
+	// public class Index {
 	// Index ID for a Course
 	private int indexID;
 	// Course ID that the index belongs to
