@@ -1,13 +1,13 @@
 package SS9Project;
-package entities;
+//package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-import entities.Course;
-import entities.Lesson;
-import entities.WaitList;
-import entities.Schedule;
-
+//import entities.Course;
+//import entities.Lesson;
+//import entities.WaitList;
+//import entities.Schedule;
 
 /*
  * Each Index represent a class for a course.
@@ -15,88 +15,117 @@ import entities.Schedule;
  * Done by AKSHITA RAVISANKAR, HOO KAH JUN, JEWELLE LIM FONG YEE, LEE YU JIE MELVIN, PUVVADA MEGHANA
  */
 
-public class Index{
+//public class Index implements Serializable {
+public class Index {
 	// Index ID for a Course
 	private int indexID;
 	// Course ID that the index belongs to
-	private String courseID;
+	// private String courseID;
 	// Vacancy left for the index
 	private int vacancy;
 	// Schedule for the index
-	private Schedule schedule;
+	// private Schedule schedule;
 	// total number of students this index can have
 	private String size;
-	//number of students who have added this Index to their stars
+	// number of students who have added this Index to their stars
 	private String numberOfStudent;
-	//waitlist of this index
+	// waitlist of this index
 	private WaitList waitlist;
-	//course this index belongs to
+	// course this index belongs to
 	private Course course;
+	// List of class schedule
+	private ArrayList<Lesson> schedule;
 
-	//create a new index
-	public Index(){
+	// create a new index
+	public Index() {
 	}
-	//get the index number
+
+	// public Index(int indexID, String courseID, int vacancy, Schedule schedule) {
+	// super();
+	// this.indexID = indexID;
+	// this.courseID = courseID;
+	// this.vacancy = vacancy;
+	// this.schedule = schedule;
+	// }
+
+	// get the index number
 	public int getIndexID() {
 		return indexID;
 	}
-	//change index number
+
+	// change index number
 	public void setIndexID(int indexID) {
 		this.indexID = indexID;
 	}
-	//gets the course code which this Index belongs to.
-	public String getCourseID() {
-		return courseID;
-	}
-	//change course code this index belongs to
-	public void setCourseID(String courseID) {
-		this.courseID = courseID;
-	}
-	//gets number of empty spaces available for students in this index
+
+	// gets the course code which this Index belongs to.
+	// public String getCourseID() {
+	// return courseID;
+	// }
+
+	// change course code this index belongs to
+	// public void setCourseID(String courseID) {
+	// this.courseID = courseID;
+	// }
+
+	// gets number of empty spaces available for students in this index
 	public int getIndexVacancy() {
 		return vacancy;
 	}
-	//changes the number of empty spaces available for students in this index
+
+	// changes the number of empty spaces available for students in this index
 	public void setIndexVacancy(int vacancy) {
 		this.vacancy = vacancy;
 	}
-	//gets the schedule of lessons this index has
-	public Schedule getIndexSchedule() {
+
+	// gets the schedule of lessons this index has
+	// public Schedule getIndexSchedule() {
+	public ArrayList<Lesson> getIndexSchedule() {
 		return schedule;
 	}
-	//changes the schedule of lessons this index has
-	public void setSchedule(Schedule schedule) {
+
+	// changes the schedule of lessons this index has
+	// public void setSchedule(Schedule schedule) {
+	public void setSchedule(ArrayList<Lesson> schedule) {
 		this.schedule = schedule;
 	}
-	//get the waitlist of this index
+
+	// get the waitlist of this index
 	public WaitList getWaitlist() {
 		return waitlist;
 	}
-	//change the waitlist of this index
+
+	// change the waitlist of this index
 	public void setWaitlist(WaitList waitlist) {
 		this.waitlist = waitlist;
 	}
-	//get the course this index belongs to
+
+	// get the course this index belongs to
 	public Course getCourse() {
 		return course;
 	}
-	//change course of this index
+
+	// change course of this index
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	//gets number of students who have added this Index to their stars
+
+	// gets number of students who have added this Index to their stars
 	public String getNumberOfStudent() {
 		return numberOfStudent;
 	}
-	//changes number of students who have added this Index to their stars
+
+	// changes number of students who have added this Index to their stars
 	public void setNumberOfStudent(String numberOfStudent) {
 		this.numberOfStudent = numberOfStudent;
-	}	
-	//gets total number of students this index can have
+	}
+
+	// gets total number of students this index can have
 	public String getSize() {
 		return size;
 	}
-	//changes total number of students this index can have
+
+	// changes total number of students this index can have
 	public void setSize(String size) {
 		this.size = size;
 	}
