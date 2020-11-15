@@ -31,8 +31,11 @@ public class Course{
 	private String lessonType;
 	
 	//creates a course
-	public Course{
+	public Course(String courseName, String courseID, ArrayList<Index> index) {
 		super();
+		this.courseName = courseName;
+		this.courseID = courseID;
+		this.index = index;
 	}
 	//get name of a course
 	public String getCourseName() {
