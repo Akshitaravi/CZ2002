@@ -10,8 +10,8 @@ import java.util.*;
  * Done by AKSHITA RAVISANKAR, HOO KAH JUN, JEWELLE LIM FONG YEE, LEE YU JIE MELVIN, PUVVADA MEGHANA
  */
 
-//public class Course implements Serializable {
-public class Course {
+public class Course implements Serializable {
+	// public class Course {
 
 	// Name of course
 	private String courseName;
