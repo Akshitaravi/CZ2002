@@ -50,19 +50,28 @@ public class Test {
 		}
 
 		// Insert Data (Course)
-		ArrayList<Index> totalindex = new ArrayList<Index>();
-
-		Schedule nSchedule = new Schedule(19201, 4, 2, 5, 3, convertTime("14:30"), convertTime("09:30"),
-				convertTime("11:30"), convertTime("10:30"), "SWLAB1", "LT2A", "LT2A", "LHN TR+17", true);
-
-		Index index = new Index(19201, "CZ2002", 10, nSchedule);
-		totalindex.add(index);
-
 		Course nCourse = new Course();
 		nCourse.setCourseID("CZ2002");
 		nCourse.setCourseName("OBJECT ORIENTED DESIGN & PROGRAMMING");
-		nCourse.setCourseIndex(totalindex);
+		ArrayList<Index> totalindex = new ArrayList<Index>();
+		ArrayList<Lesson> nSchedule = new ArrayList<Lesson>();
 
+		Index index = new Index();
+		index.setIndexID(19201);
+		index.setCourse(nCourse);
+
+		Lesson lesson = new Lesson(19201, "Lab", 4, true, convertTime("14:30"), "SWLAB1");
+		nSchedule.add(lesson);
+		lesson = new Lesson(19201, "Lec", 2, false, convertTime("09:30"), "LT2A");
+		nSchedule.add(lesson);
+		lesson = new Lesson(19201, "Lec", 5, false, convertTime("11:30"), "LT2A");
+		nSchedule.add(lesson);
+		lesson = new Lesson(19201, "Tut", 3, false, convertTime("10:30"), "LHN TR+17");
+		nSchedule.add(lesson);
+
+		index.setSchedule(nSchedule);
+		totalindex.add(index);
+		nCourse.setCourseIndex(totalindex);
 		listofCourse.add(nCourse);
 
 		try {
