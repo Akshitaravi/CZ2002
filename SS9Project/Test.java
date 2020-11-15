@@ -58,7 +58,11 @@ public class Test {
 		Index index = new Index(19201, "CZ2002", 10, nSchedule);
 		totalindex.add(index);
 
-		Course nCourse = new Course("OBJECT ORIENTED DESIGN & PROGRAMMING", "CZ2002", totalindex);
+		Course nCourse = new Course();
+		nCourse.setCourseID("CZ2002");
+		nCourse.setCourseName("OBJECT ORIENTED DESIGN & PROGRAMMING");
+		nCourse.setCourseIndex(totalindex);
+
 		listofCourse.add(nCourse);
 
 		try {
