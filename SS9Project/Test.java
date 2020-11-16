@@ -1,4 +1,4 @@
-package SS9Project;
+package entities;
 
 import java.io.*;
 import java.text.DateFormat;
@@ -10,6 +10,14 @@ import java.util.*;
  */
 
 public class Test {
+	
+	public static ArrayList<Student>listofStudents;
+	public static ArrayList<Course>listofCourse;
+	public static ArrayList<Index>totalindex;
+	
+	
+	
+	
 	public static Date convertTime(String s) {
 		DateFormat df = new SimpleDateFormat("HH:mm");
 		Date date = null;
@@ -34,7 +42,7 @@ public class Test {
 
 	public static void main(String[] Argz) {
 		// Get Data
-		ArrayList<Course> listofCourse = new ArrayList<Course>();
+		//ArrayList<Course> listofCourse = new ArrayList<Course>();
 
 		try {
 			FileInputStream fis = new FileInputStream("data/testCourse.dat");
@@ -53,7 +61,7 @@ public class Test {
 		Course nCourse = new Course();
 		nCourse.setCourseID("CZ2002");
 		nCourse.setCourseName("OBJECT ORIENTED DESIGN & PROGRAMMING");
-		ArrayList<Index> totalindex = new ArrayList<Index>();
+		//ArrayList<Index> totalindex = new ArrayList<Index>();
 		ArrayList<Lesson> nSchedule = new ArrayList<Lesson>();
 
 		Index index = new Index();
