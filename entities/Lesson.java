@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.text.ParseException;
 /*
  * Each Lesson represent a type of lesson in a schedule.
  *
