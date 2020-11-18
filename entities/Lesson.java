@@ -2,7 +2,7 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
-
+import java.text.SimpleDateFormat;
 /*
  * Each Lesson represent a type of lesson in a schedule.
  *
@@ -77,5 +77,37 @@ public class Lesson implements Serializable {
 
 	public void setVenue(String venue) {
 		this.venue = venue;
+	}
+	public boolean isTimeClashBLesson(ArrayList<Lesson> newlist) {
+		boolean isClash = false;
+		try {
+			Date thisstarttime = new SimpleDateFormat("HHmm").parse(this.getStarttime());
+			Date thisendtime = new SimpleDateFormat("HHmm").parse(this.getEndtime());
+
+			for (int i = 0; i < newlist.size(); i++) {
+				if (this.day.equals(newlist.get(i).getDay())) {
+					if ((this.week.equals("EVEN") & newlist.get(i).getWeek().equals("ODD"))
+							| (this.week.equals("ODD") & newlist.get(i).getWeek().equals("EVEN"))) {
+						continue;
+					}
+					Date newstarttime = new SimpleDateFormat("HHmm").parse(newlist.get(i).getStarttime());
+					Date newendtime = new SimpleDateFormat("HHmm").parse(newlist.get(i).getEndtime());
+
+					if (newstarttime.equals(thisstarttime)
+							| (newstarttime.before(thisendtime) & newstarttime.after(thisstarttime)))
+						isClash = true;
+					else if (newendtime.equals(thisendtime)
+							| (newendtime.after(thisstarttime) & newendtime.before(thisendtime)))
+						isClash = true;
+				}
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (isClash)
+			return true;
+		else
+			return false;
 	}
 }
