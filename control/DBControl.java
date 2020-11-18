@@ -30,8 +30,46 @@ public class DBControl implements Serializable {
 		return false;
 	}
 
+	public static boolean updateFile(String[] database) {
+		ArrayList<String> registrationList = new ArrayList<String>();
+
+		// Get all existing course
+		if (readRegistrationFile().size() != 0)
+			registrationList = readRegistrationFile();
+		// Add the course into the database
+		registrationList.add(String.join(",", database));
+
+		try {
+			FileOutputStream fos = new FileOutputStream("data/registration.dat");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(database);
+			oos.close();
+			fos.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	// Read the database
-	public static ArrayList<Course> readFile(String filename) {
+	public static ArrayList<String> readRegistrationFile() {
+		ArrayList<String> dbArray = new ArrayList<String>();
+		try {
+			FileInputStream fis = new FileInputStream("data/registration.dat");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			dbArray = (ArrayList<String>) ois.readObject();
+			ois.close();
+			fis.close();
+		} catch (Exception e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return dbArray;
+	}
+
+	public static ArrayList<Course> readCourseFile() {
 		ArrayList<Course> dbArray = new ArrayList<Course>();
 		try {
 			FileInputStream fis = new FileInputStream("data/course.dat");
@@ -50,8 +88,8 @@ public class DBControl implements Serializable {
 	public static void addCourse(Course newCourse) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
 		// Get all existing course
-		if (readFile("course").size() != 0)
-			courseList = readFile("course");
+		if (readCourseFile().size() != 0)
+			courseList = readCourseFile();
 		// Add the course into the database
 		courseList.add(newCourse);
 		// Update the database
@@ -65,8 +103,8 @@ public class DBControl implements Serializable {
 	public static boolean removeCourse(String id) {
 		ArrayList<Course> courseList = new ArrayList<Course>();
 		// Get all existing course
-		if (readFile("course").size() != 0) {
-			courseList = readFile("course");
+		if (readCourseFile().size() != 0) {
+			courseList = readCourseFile();
 
 			for (Course i : courseList) {
 				if (i.getCourseID().equals(id)) { // If course to be remove matches by ID
