@@ -30,7 +30,7 @@ public class Student extends User {
 	private CourseRegister[] courseRegistrations;
 	
 	//school the student is enrolled in
-	//private School school;
+	private School school;
 	//year the student is in
 	private String Year;
 	
@@ -89,13 +89,13 @@ public class Student extends User {
 		this.notificationType = notificationType;
 	}
 	//get the school the student is enrolled in
-	//public School getSchool() {
-	//	return school;
-	//}
+	public School getSchool() {
+		return school;
+	}
 	//change the school the student is enrolled in
-	//public void setSchool(School school) {
-	//	this.school = school;
-	//}
+	public void setSchool(School school) {
+		this.school = school;
+	}
 	//get the year the student is in
 	public String getYear() {
 		return Year;
