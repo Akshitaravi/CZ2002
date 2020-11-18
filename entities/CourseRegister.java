@@ -11,17 +11,28 @@ public class CourseRegister implements Serializable{
 	private Student student;
 	private Course course;
 	private Index index;
+	private String userID;
+	
 	
 	// Status becomes True when course is registered. It becomes false when course is on waitlist
-	private Boolean Status;
+	private Boolean Status;  
 	
 	public static ArrayList<CourseRegister>registeredList;
 
-	public CourseRegister(Student student, Course course, Index index, Boolean status){
+	public CourseRegister(Student student, Course course, Index index, Boolean status, String userID){
 		this.setStudent(student);
 		this.setCourse(course);
 		this.setIndex(index);
 		this.setStatus(status);
+		this.setuserID(userID);
+	}
+
+	private void getuserID(String userID) {
+		
+	}
+
+	private void setuserID(String userID) {
+		this.userID= userID;
 	}
 
 	//return the student
