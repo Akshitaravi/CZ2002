@@ -3,23 +3,24 @@ package entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/** An association class linking the student and the course
- *  that they have registered
+/**
+ * An association class linking the student and the course that they have
+ * registered
  */
-public class CourseRegister implements Serializable{
-	
+public class CourseRegister implements Serializable {
+
 	private Student student;
 	private Course course;
 	private Index index;
 	private String userID;
-	
-	
-	// Status becomes True when course is registered. It becomes false when course is on waitlist
-	private Boolean Status;  
-	
-	public static ArrayList<CourseRegister>registeredList;
 
-	public CourseRegister(Student student, Course course, Index index, Boolean status, String userID){
+	// Status becomes True when course is registered. It becomes false when course
+	// is on waitlist
+	private Boolean Status;
+
+	public static ArrayList<CourseRegister> registeredList;
+
+	public CourseRegister(Student student, Course course, Index index, Boolean status, String userID) {
 		this.setStudent(student);
 		this.setCourse(course);
 		this.setIndex(index);
@@ -28,45 +29,39 @@ public class CourseRegister implements Serializable{
 	}
 
 	private void getuserID(String userID) {
-		
+
 	}
 
 	private void setuserID(String userID) {
-		this.userID= userID;
+		this.userID = userID;
 	}
 
-	//return the student
-	
+	// return the student
+
 	public Student getStudent() {
 		return student;
 	}
 
-	
 	public void setStudent(Student student) {
 		this.student = student;
 	}
 
-	
 	public Course getCourse() {
 		return course;
 	}
 
-	
 	public void setCourse(Course course) {
 		this.course = course;
 	}
 
-	
 	public Index getIndex() {
 		return index;
 	}
 
-	
 	public void setIndex(Index index) {
 		this.index = index;
 	}
 
-	
 	public Boolean getStatus() {
 		return Status;
 	}
@@ -74,5 +69,5 @@ public class CourseRegister implements Serializable{
 	public void setStatus(Boolean status) {
 		Status = status;
 	}
-	
+
 }
