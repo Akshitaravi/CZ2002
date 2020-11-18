@@ -48,4 +48,75 @@ public class User implements Serializable {
 		this.cityName = cityName;
 		this.postalCode = postalCode;
 	}
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getNric() {
+		return nric;
+	}
+	
+	public void setNric(String nric) {
+		this.nric = nric;
+	}
+
+	public int getContact() {
+		return contact;
+	}
+	
+	public void setContact(int contact) {
+		this.contact = contact;
+	}
+	
+	public Date getDob() {
+		return dob;
+	}
+	
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+	
+	
+	public boolean getGender() {
+		return gender;
+	}
+	
+	public void setGender(boolean gender) {
+		this.gender = gender;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}
+	
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
 }
