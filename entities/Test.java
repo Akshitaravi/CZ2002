@@ -5,8 +5,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import SS9Project.Admin;
-
 /*
  * This is a test file for functionality
  */
@@ -40,7 +38,7 @@ public class Test {
 
 	public static void main(String[] Argz) {
 		// Get Data
-		// ArrayList<Course> listofCourse = new ArrayList<Course>();
+		ArrayList<Course> listofCourse = new ArrayList<Course>();
 
 		try {
 			FileInputStream fis = new FileInputStream("data/testCourse.dat");
@@ -48,47 +46,50 @@ public class Test {
 			listofCourse = (ArrayList) ois.readObject();
 			ois.close();
 			fis.close();
-
-			for (int i = 0; i < listofCourse.size(); i++)
+		
+			for (int i = 0; i < listofCourse.size(); i++) {
 				System.out.println(listofCourse.get(i));
+				System.out.println(listofCourse.get(i).getCourseName());
+			}
+		
 		} catch (Exception e) {
 			System.out.println("Exception Occured >> " + e.getMessage());
 		}
 
 		// Insert Data (Course)
-		Course nCourse = new Course();
-		nCourse.setCourseID("CZ2002");
-		nCourse.setCourseName("OBJECT ORIENTED DESIGN & PROGRAMMING");
+		// Course nCourse = new Course();
+		// nCourse.setCourseID("CZ2002");
+		// nCourse.setCourseName("OBJECT ORIENTED DESIGN & PROGRAMMING"); //
 		// ArrayList<Index> totalindex = new ArrayList<Index>();
-		ArrayList<Lesson> nSchedule = new ArrayList<Lesson>();
-
-		Index index = new Index();
-		index.setIndexID(19201);
-		index.setCourse(nCourse);
-
-		Lesson lesson = new Lesson(19201, "Lab", 4, true, convertTime("14:30"), "SWLAB1");
-		nSchedule.add(lesson);
-		lesson = new Lesson(19201, "Lec", 2, false, convertTime("09:30"), "LT2A");
-		nSchedule.add(lesson);
-		lesson = new Lesson(19201, "Lec", 5, false, convertTime("11:30"), "LT2A");
-		nSchedule.add(lesson);
-		lesson = new Lesson(19201, "Tut", 3, false, convertTime("10:30"), "LHN TR+17");
-		nSchedule.add(lesson);
-
-		index.setSchedule(nSchedule);
-		totalindex.add(index);
-		nCourse.setCourseIndex(totalindex);
-		listofCourse.add(nCourse);
-
-		try {
-			FileOutputStream fos = new FileOutputStream("data/testCourse.dat");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(listofCourse);
-			oos.close();
-			fos.close();
-		} catch (Exception e) {
-			System.out.println("Exception Occured >> " + e.getMessage());
-		}
+		// ArrayList<Lesson> nSchedule = new ArrayList<Lesson>();
+		// 
+		// Index index = new Index();
+		// index.setIndexID(19201);
+		// index.setCourse(nCourse);
+		// 
+		// Lesson lesson = new Lesson(19201, "Lab", 4, true, convertTime("14:30"), "SWLAB1");
+		// nSchedule.add(lesson);
+		// lesson = new Lesson(19201, "Lec", 2, false, convertTime("09:30"), "LT2A");
+		// nSchedule.add(lesson);
+		// lesson = new Lesson(19201, "Lec", 5, false, convertTime("11:30"), "LT2A");
+		// nSchedule.add(lesson);
+		// lesson = new Lesson(19201, "Tut", 3, false, convertTime("10:30"), "LHN TR+17");
+		// nSchedule.add(lesson);
+		// 
+		// index.setSchedule(nSchedule);
+		// totalindex.add(index);
+		// nCourse.setCourseIndex(totalindex);
+		// listofCourse.add(nCourse);
+		// 
+		// try {
+		// 	FileOutputStream fos = new FileOutputStream("data/testCourse.dat");
+		// 	ObjectOutputStream oos = new ObjectOutputStream(fos);
+		// 	oos.writeObject(listofCourse);
+		// 	oos.close();
+		// 	fos.close();
+		// } catch (Exception e) {
+		// 	System.out.println("Exception Occured >> " + e.getMessage());
+		// }
 
 		// Insert Data ( Admin)
 		ArrayList<Admin> totaladmin = new ArrayList<Admin>();
