@@ -92,20 +92,20 @@ public class Test {
 		// }
 
 		// Insert Data ( Admin)
-		ArrayList<Admin> totaladmin = new ArrayList<Admin>();
-		Admin admin1 = new Admin("Tan Kheng Leong", "KHENGLEONG", "P@ssw0rd", "S1234567A", newDate("1970-01-01"),
-				87654321, true, "SG", "50", "Nanyang Avenue", "Singapore", "639798");
-		totaladmin.add(admin1);
-
-		try {
-			FileOutputStream fos = new FileOutputStream("data/testAdmin.dat");
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(totaladmin);
-			oos.close();
-			fos.close();
-		} catch (Exception e) {
-			System.out.println("Exception Occured >> " + e.getMessage());
-		}
+		// ArrayList<Admin> totaladmin = new ArrayList<Admin>();
+		// Admin admin1 = new Admin("Tan Kheng Leong", "KHENGLEONG", "P@ssw0rd", "S1234567A", newDate("1970-01-01"),
+		// 		87654321, true, "SG", "50", "Nanyang Avenue", "Singapore", "639798");
+		// totaladmin.add(admin1);
+		// 
+		// try {
+		// 	FileOutputStream fos = new FileOutputStream("data/testAdmin.dat");
+		// 	ObjectOutputStream oos = new ObjectOutputStream(fos);
+		// 	oos.writeObject(totaladmin);
+		// 	oos.close();
+		// 	fos.close();
+		// } catch (Exception e) {
+		// 	System.out.println("Exception Occured >> " + e.getMessage());
+		// }
 
 	}
 }
