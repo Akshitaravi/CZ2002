@@ -1,29 +1,83 @@
 package control;
 
-public class DBControl {
-	// Add new course into the database;
-	public static void addCourse(Course newCourse) {
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
 
+import entities.*;
+
+@SuppressWarnings("unchecked")
+
+public class DBControl implements Serializable {
+	private static final long serialVersionUID = 1L; // Default Serial ID
+
+	// Append into database
+	public static boolean updateFile(String filename, ArrayList<?> database) {
+		try {
+			FileOutputStream fos = new FileOutputStream("data/" + filename + ".dat");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(database);
+			oos.close();
+			fos.close();
+			return true;
+		} catch (Exception e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return false;
 	}
-	// /**
-	// * Add new Course into the Course database.
-	// *
-	// * @param newCourse new Course to be added.
-	// */
-	// public static void addCourse(Course newCourse) {
-	// String[] dataLineArray = new String[5];
-	// dataLineArray[0] = newCourse.getCourseCode();
-	// dataLineArray[1] = newCourse.getCourseName();
-	// dataLineArray[2] = newCourse.getSchool().getSchoolInitial();
-	// dataLineArray[3] = newCourse.getLessonType();
-	// dataLineArray[4] = newCourse.getAu();
-	//
-	// if (addOneline("Course", dataLineArray)) {
-	// System.out.println("Course added sucessfully.");
-	// } else
-	// System.out.println("Failed to add course. ");
-	// }
-	//
+
+	// Read the database
+	public static ArrayList<Course> readFile(String filename) {
+		ArrayList<Course> dbArray = new ArrayList<Course>();
+		try {
+			FileInputStream fis = new FileInputStream("data/course.dat");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			dbArray = (ArrayList<Course>) ois.readObject();
+			ois.close();
+			fis.close();
+		} catch (Exception e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		return dbArray;
+	}
+
+	// Add new course into the database
+	public static void addCourse(Course newCourse) {
+		ArrayList<Course> courseList = new ArrayList<Course>();
+		// Get all existing course
+		if (readFile("course").size() != 0)
+			courseList = readFile("course");
+		// Add the course into the database
+		courseList.add(newCourse);
+		// Update the database
+		if (updateFile("course", courseList))
+			System.out.println("Course added successfully!");
+		else
+			System.out.println("We tried to add the course but it's failed. (TT)");
+	}
+
+	// Delete the course from database
+	public static boolean removeCourse(String id) {
+		ArrayList<Course> courseList = new ArrayList<Course>();
+		// Get all existing course
+		if (readFile("course").size() != 0) {
+			courseList = readFile("course");
+
+			for (Course i : courseList) {
+				if (i.getCourseID().equals(id)) { // If course to be remove matches by ID
+					courseList.remove(i);
+					return updateFile("course", courseList); // Break and escape
+				}
+			}
+		}
+		return false;
+	}
+
 	// /**
 	// * Add new Index into the Index_Capacity database.
 	// *
@@ -85,33 +139,6 @@ public class DBControl {
 	// // System.out.println("Wait List added sucessfully.");
 	// } else
 	// System.out.println("Failed to add Wait List.");
-	// }
-	//
-	// /**
-	// * Append one new line to a database by inputting database filename and
-	// String[]
-	// * of the line to insert.Returns true if successfully added if not return
-	// false.
-	// *
-	// * @param filename file name of the datebase.
-	// * @param dataLineArray entry of content to be added to the database.
-	// * @return true or false.
-	// */
-	// public static boolean addOneline(String filename, String[] dataLineArray) {
-	// try {
-	// CSVWriter writer = new CSVWriter(new FileWriter("res/" + filename + ".csv",
-	// true));
-	// writer.writeNext(dataLineArray, false);
-	// writer.close();
-	// return true;
-	// } catch (FileNotFoundException e) {
-	// e.printStackTrace();
-	// return false;
-	// } catch (IOException e) {
-	//
-	// e.printStackTrace();
-	// return false;
-	// }
 	// }
 	//
 	// /**
@@ -376,37 +403,6 @@ public class DBControl {
 	// } catch (IOException e) {
 	// e.printStackTrace();
 	// }
-	// }
-	// return false;
-	// }
-	//
-	// /**
-	// * Delete a course in the Course database with a given course code. Returns
-	// true
-	// * if successfully deleted if not return false.
-	// *
-	// * @param courseCode course code to be deleted.
-	// * @return true or false.
-	// */
-	// public static boolean deleteCourse(String courseCode) {
-	// CSVReader reader = makeReader("Course");
-	// ArrayList<String[]> courseList = new ArrayList<String[]>();
-	// String[] row;
-	// try {
-	// while ((row = reader.readNext()) != null) {
-	// if (row[0].equals(courseCode))
-	// continue;
-	// else {
-	// courseList.add(row);
-	// }
-	// }
-	// CSVWriter writer = new CSVWriter(new FileWriter("res/Course.csv"));
-	// writer.writeAll(courseList, false);
-	// ;
-	// writer.close();
-	// return true;
-	// } catch (IOException e) {
-	// e.printStackTrace();
 	// }
 	// return false;
 	// }
