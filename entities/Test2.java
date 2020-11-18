@@ -39,7 +39,7 @@ public class Test2 {
 		rw.WriteToFile(filename, "DTSTART;TZID=Asia/Singapore:20200814T183000\n");
 		rw.WriteToFile(filename, "DTEND;TZID=Asia/Singapore:20200814T193000\n");
 		rw.WriteToFile(filename, "RRULE;TZID=Asia/Singapore:FREQ=WEEKLY;BYDAY=FR;COUNT=14\n");
-		rw.WriteToFile(filename, "EXDATE:20200928,20200929,20200930,20201001,20201002\n");
+		rw.WriteToFile(filename, "EXDATE:20201002T183000\n");
 		rw.WriteToFile(filename, "LOCATION:LT2A\n");
 		rw.WriteToFile(filename, "SUMMARY:[LEC] [CZ2000] [CS2] Introduction to Computer Science\n");
 		rw.WriteToFile(filename, "END:VEVENT\n");
